@@ -45,7 +45,7 @@ class OrgaViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         if tableView == self.aufzeichnungTableView {
             count =  moduleTimeTable.count
-        }
+        } 
 
         return count!
 
@@ -60,12 +60,23 @@ class OrgaViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         return cell
     }
+
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+
+        if editingStyle == UITableViewCellEditingStyle.delete {
+
+            moduleTimeTable.remove(at: indexPath.row)
+            aufzeichnungTableView.reloadData()
+        }
+    }
+
+
+
     //Get the name of the module
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == self.aufzeichnungTableView {
             let moduleName = moduleTimeTable[indexPath.row]
             handleAufzeichnung(moduleName: moduleName)
-
 
         }
     }

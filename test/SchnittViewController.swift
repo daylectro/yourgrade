@@ -93,11 +93,8 @@ class SchnittViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if editingStyle == UITableViewCellEditingStyle.delete {
             
-            
            kurse.remove(at: indexPath.row)
             myTableView.reloadData()
-
-            
         }
         
     }
