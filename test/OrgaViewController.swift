@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import QuickLook
 
-class OrgaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-
+class OrgaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QLPreviewControllerDataSource,
+        UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var klausurenTableView: UITableView!
     @IBOutlet weak var sprechstundeTableView: UITableView!
@@ -48,8 +49,6 @@ class OrgaViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         return count!
 
-
-
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,6 +60,41 @@ class OrgaViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         return cell
     }
+    //Get the name of the module
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == self.aufzeichnungTableView {
+            let moduleName = moduleTimeTable[indexPath.row]
+            handleAufzeichnung(moduleName: moduleName)
+
+
+        }
+    }
+
+    //create a path where the picture goes to and add jpg
+    private func imageFilename(moduleName: String) -> String {
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
+        return documentsPath.appendingPathComponent(moduleName) + ".jpg"
+    }
+
+    //create and url and if the file exist show it with QLPreviewController and if not that use a picker
+    private func handleAufzeichnung(moduleName: String) {
+        let filename = imageFilename(moduleName: moduleName)
+        previewImageFileUrl = URL(fileURLWithPath: filename)
+        if FileManager.default.fileExists(atPath: filename) {
+            let previewController = QLPreviewController()
+            previewController.dataSource = self
+            present(previewController, animated: true)
+        } else {
+            var imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+
+
+    }
+
 
 
 
@@ -71,14 +105,27 @@ class OrgaViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
+    //Preview delegate goes here and i could also add array for more pictures (Array of URL)
+
+    var previewImageFileUrl: URL? = nil
+
+    func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
+        return previewImageFileUrl == nil ? 0 : 1
     }
-    */
+
+    func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
+        return previewImageFileUrl! as NSURL
+    }
+
+    // Delegate for Imagepicker. If it is clicked, save the file that the ImagePicker took
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            let data = UIImageJPEGRepresentation(pickedImage, 0.85)
+            try? data?.write(to: previewImageFileUrl!)
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
 
 }
