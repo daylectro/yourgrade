@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Modul {
+struct Modul: Codable {
     
     let title : String
     var grade : Double
@@ -18,6 +18,8 @@ struct Modul {
 
 class SchnittViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+
+
 
     var kurse: [Modul] = [Modul(title: "Deutsch", grade: 1), Modul(title: "Mathe", grade: 1), Modul(title: "Englisch", grade: 1)]
     
@@ -51,7 +53,9 @@ class SchnittViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         neuerSchnitt.text = "\(notenSchnitt(kurse: kurse))"
 
-        //UserDefaults.standard.set(kurse, forKey: "SavedKurse")
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(kurse), forKey:"SavedKurse")
+
+        UserDefaults.standard.set(neuerSchnitt.text, forKey: "aktuellerSchnitt")
 
     }
     
@@ -83,8 +87,9 @@ class SchnittViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidAppear(_ animated: Bool) {
         
-        myTableView.reloadData()
-        
+         myTableView.reloadData()
+
+
     }
         
         
@@ -93,6 +98,13 @@ class SchnittViewController: UIViewController, UITableViewDelegate, UITableViewD
         if editingStyle == UITableViewCellEditingStyle.delete {
             
            kurse.remove(at: indexPath.row)
+
+            neuerSchnitt.text = "\(notenSchnitt(kurse: kurse))"
+
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(kurse), forKey:"SavedKurse")
+
+            UserDefaults.standard.set(neuerSchnitt.text, forKey: "aktuellerSchnitt")
+
             myTableView.reloadData()
         }
         
@@ -108,10 +120,17 @@ class SchnittViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       /* if let kurseObject = UserDefaults.standard.object(forKey: "SavedKurse") {
+        if let data = UserDefaults.standard.value(forKey:"SavedKurse") as? Data {
+            kurse = try! PropertyListDecoder().decode(Array<Modul>.self, from: data)
 
-            kurse = (kurseObject as? [Modul])!
-        } */
+            myTableView.reloadData()
+        }
+
+        if let schnittObject = UserDefaults.standard.object(forKey: "aktuellerSchnitt") {
+
+            neuerSchnitt.text = (schnittObject as? String)!
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
