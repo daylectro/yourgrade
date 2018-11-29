@@ -4,12 +4,15 @@
 //
 //  Created by Daniel Tiemor on 13.11.18.
 //  Copyright © 2018 Daylectro. All rights reserved.
-//
+
+//Hatte eine Idee, um die Zahlen nicht eintippen zu müssen, aber konnte die Idee nicht zuende führen
 
 import UIKit
 
 class ModulViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+
+
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var gradePicker: UIPickerView!
     

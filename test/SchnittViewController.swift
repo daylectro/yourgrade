@@ -19,7 +19,7 @@ struct Modul {
 class SchnittViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
 
-    var kurse: [Modul] = [Modul(title: "Math", grade: 1), Modul(title: "Analytics", grade: 2), Modul(title: "Differential equations", grade: 1)]
+    var kurse: [Modul] = [Modul(title: "Deutsch", grade: 1), Modul(title: "Mathe", grade: 1), Modul(title: "Englisch", grade: 1)]
     
     //@IBOutlet weak var average: UILabel!
     @IBOutlet weak var neuerSchnitt: UILabel!
@@ -54,8 +54,6 @@ class SchnittViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func notenSchnitt (kurse: [Modul]) -> Double {
-        
-
         
         var sum: Double = 0
         for module in kurse {
@@ -130,16 +128,5 @@ class SchnittViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
 }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 

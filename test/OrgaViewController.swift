@@ -30,7 +30,6 @@ class OrgaViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     }
 
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         var count:Int?
@@ -70,8 +69,6 @@ class OrgaViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
 
-
-
     //Get the name of the module
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == self.aufzeichnungTableView {
@@ -106,17 +103,10 @@ class OrgaViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     }
 
-
-
-
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-
 
     //Preview delegate goes here and i could also add array for more pictures (Array of URL)
 

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4014A23C21AF68DA00E47379 /* board.png in Resources */ = {isa = PBXBuildFile; fileRef = 4014A23B21AF68D900E47379 /* board.png */; };
+		4014A23E21AF6B7F00E47379 /* orgapicture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4014A23D21AF6B7F00E47379 /* orgapicture.jpg */; };
+		4014A24021AF6F7500E47379 /* students.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4014A23F21AF6F7500E47379 /* students.jpg */; };
 		404965DD21A72C2C007D6210 /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404965DC21A72C2C007D6210 /* TimeTableViewController.swift */; };
 		4062D35721ACC13C0093DF08 /* 13b444ee87d79f6ce13c9198fe5201c7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4062D35621ACC13C0093DF08 /* 13b444ee87d79f6ce13c9198fe5201c7.jpg */; };
 		40DD1D5721A9A10800271F19 /* OrgaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DD1D5621A9A10800271F19 /* OrgaViewController.swift */; };
@@ -39,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4014A23B21AF68D900E47379 /* board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = board.png; sourceTree = "<group>"; };
+		4014A23D21AF6B7F00E47379 /* orgapicture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = orgapicture.jpg; sourceTree = "<group>"; };
+		4014A23F21AF6F7500E47379 /* students.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = students.jpg; sourceTree = "<group>"; };
 		404965DC21A72C2C007D6210 /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 		4062D35621ACC13C0093DF08 /* 13b444ee87d79f6ce13c9198fe5201c7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 13b444ee87d79f6ce13c9198fe5201c7.jpg; sourceTree = "<group>"; };
 		40DD1D5621A9A10800271F19 /* OrgaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgaViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +123,9 @@
 				8786A533219A3DA0007A2D77 /* Assets.xcassets */,
 				8786A535219A3DA0007A2D77 /* LaunchScreen.storyboard */,
 				8786A538219A3DA0007A2D77 /* Info.plist */,
+				4014A23B21AF68D900E47379 /* board.png */,
+				4014A23F21AF6F7500E47379 /* students.jpg */,
+				4014A23D21AF6B7F00E47379 /* orgapicture.jpg */,
 				4062D35621ACC13C0093DF08 /* 13b444ee87d79f6ce13c9198fe5201c7.jpg */,
 			);
 			path = test;
@@ -247,6 +256,9 @@
 				8786A537219A3DA0007A2D77 /* LaunchScreen.storyboard in Resources */,
 				4062D35721ACC13C0093DF08 /* 13b444ee87d79f6ce13c9198fe5201c7.jpg in Resources */,
 				8786A534219A3DA0007A2D77 /* Assets.xcassets in Resources */,
+				4014A23E21AF6B7F00E47379 /* orgapicture.jpg in Resources */,
+				4014A23C21AF68DA00E47379 /* board.png in Resources */,
+				4014A24021AF6F7500E47379 /* students.jpg in Resources */,
 				8786A532219A3D9E007A2D77 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

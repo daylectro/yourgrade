@@ -10,16 +10,11 @@ import UIKit
 
 class TimeTableViewController: UIViewController {
 
-
-
-
     var moduleTimeTable: [String] = []
     var index = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
 
         if let moduleObject = UserDefaults.standard.object(forKey: "SavedArray") {
 
@@ -28,7 +23,6 @@ class TimeTableViewController: UIViewController {
         }
 
     }
-
 
     @IBOutlet weak var modulName: UITextField!
 
@@ -51,10 +45,6 @@ class TimeTableViewController: UIViewController {
         UserDefaults.standard.set(moduleTimeTable, forKey: "SavedArray")
 
     }
-
-
-
-
 
     @IBOutlet weak var Mo1Name: UIButton!
     @IBOutlet weak var Mo2Name: UIButton!
@@ -92,9 +82,6 @@ class TimeTableViewController: UIViewController {
         }
 
     }
-
-
-
     @IBAction func Mo2Name(_ sender: Any) {
 
         if moduleTimeTable.count > 0 {
@@ -360,15 +347,5 @@ class TimeTableViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
