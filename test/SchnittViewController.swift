@@ -50,7 +50,9 @@ class SchnittViewController: UIViewController, UITableViewDelegate, UITableViewD
         grade.text = ""
         
         neuerSchnitt.text = "\(notenSchnitt(kurse: kurse))"
-        
+
+        //UserDefaults.standard.set(kurse, forKey: "SavedKurse")
+
     }
     
     func notenSchnitt (kurse: [Modul]) -> Double {
@@ -60,8 +62,7 @@ class SchnittViewController: UIViewController, UITableViewDelegate, UITableViewD
             sum += module.grade
         }
         var schnitt = sum / Double(kurse.count)
-        
-        
+
         return schnitt
     }
     
@@ -107,7 +108,10 @@ class SchnittViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+       /* if let kurseObject = UserDefaults.standard.object(forKey: "SavedKurse") {
+
+            kurse = (kurseObject as? [Modul])!
+        } */
     }
 
     override func didReceiveMemoryWarning() {

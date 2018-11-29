@@ -13,8 +13,7 @@ import QuickLook
 class OrgaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QLPreviewControllerDataSource,
         UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var klausurenTableView: UITableView!
-    @IBOutlet weak var sprechstundeTableView: UITableView!
+
     @IBOutlet weak var aufzeichnungTableView: UITableView!
 
     var moduleTimeTable: [String] = []
@@ -33,14 +32,6 @@ class OrgaViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         var count:Int?
-
-        if tableView == self.klausurenTableView {
-            count = moduleTimeTable.count
-        }
-
-        if tableView == self.sprechstundeTableView {
-            count =  moduleTimeTable.count
-        }
 
         if tableView == self.aufzeichnungTableView {
             count =  moduleTimeTable.count
